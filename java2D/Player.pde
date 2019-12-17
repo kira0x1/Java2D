@@ -5,7 +5,10 @@ class Player extends Agent {
   public Player(float x, float y,float w, float h){
     super(x,y,w,h);
   }
-   
+
+   public Player(){
+    super(); 
+   }
 
 
   //Check if the player has stopped holding down a key

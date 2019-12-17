@@ -7,7 +7,7 @@ class Agent {
   public Vec2 movDir = new Vec2(0, 0);
 
   public Agent() {
-    makeBody(curPos, 3,3);
+    this(width/2, height/2, 20, 20);
   }
 
   //Move the player
@@ -19,8 +19,8 @@ class Agent {
   public Agent(float x, float y, float w, float h) {
     this.w = w;
     this.h = h;
-    
-    curPos = new Vec2(x,y);
+
+    curPos = new Vec2(x, y);
 
 
     //create box
@@ -34,13 +34,15 @@ class Agent {
   public void display() {
     Move();
     Vec2 pos = box2d.getBodyPixelCoord(body);
+    pos.add(movDir);
 
     rectMode(CENTER);
     pushMatrix();
     fill(127);
+    translate(curPos.x, curPos.y);
     stroke(0);
     strokeWeight(2);
-    rect(curPos.x, curPos.y, w, h);
+    rect(0, 0, w, h);
     popMatrix();
   }
 
@@ -70,5 +72,6 @@ class Agent {
 
     body = box2d.createBody(bd);
     body.createFixture(fd);
+    body.setGravityScale(0);
   }
 }
