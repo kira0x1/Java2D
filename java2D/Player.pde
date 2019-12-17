@@ -1,7 +1,7 @@
 class Player {
   public Stats stats = new Stats();
 
-  public PVector curPos = new PVector();
+  public PVector curPos = new PVector(width/2,height/2);
   public PVector movDir = new PVector();
 
 
@@ -53,6 +53,7 @@ class Player {
 
   public void show() {
     Move();
+    fill(0,255,0);
     rect(curPos.x, curPos.y, 55, 55);
   }
 }
