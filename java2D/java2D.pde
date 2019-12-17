@@ -34,7 +34,7 @@ void setup() {
 
   size(800, 800);
 
-  player = new Player(width/2, height/2, 20, 20);
+  player = new Player(width/2, height/2, 30, 30);
 
   test = new Doorway(400, height-11, true);
   
@@ -47,6 +47,8 @@ void setup() {
 
 void draw() {
   clear();
+  
+  strokeWeight(0);
   background(255);
   
   //Step time
