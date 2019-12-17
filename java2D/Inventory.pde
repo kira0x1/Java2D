@@ -9,13 +9,17 @@ class Inventory implements IUi {
 
   private ArrayList<Button> buttons = new ArrayList<Button>();
 
+  private BoxUI bgBox;
+
   public Inventory() {
     items = new ArrayList<Item>();
 
-    int offset = -8;
-    int startX = width - 80;
-    int startY = height - 80;
+    int offset = - 8;
+    int startX = width - 120;
+    int startY = height - 120;
     int buttonSize = 50;
+
+    bgBox = new BoxUI(startX-92, startY-100, 330, 350, true);
 
     for (int y = 0; y < bagSize / 2; y ++) {
       for (int x = 0; x < bagSize / 2; x++) {
@@ -75,6 +79,7 @@ class Inventory implements IUi {
 
   public void display() {
     if (isOpen) {
+      bgBox.display();
       for (Button btn : buttons) {
         btn.display();
       }
