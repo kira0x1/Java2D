@@ -15,8 +15,7 @@ class Player {
 
   void keyPressed() {
     if (key == 'd') {
-      if (movDir.x != stats.GetSpeed())
-      {
+      if (movDir.x != stats.GetSpeed()) {
         movDir.x = stats.GetSpeed();
       } else {
         movDir.x = 0;
@@ -30,12 +29,12 @@ class Player {
     }
 
     if (key == 'w') {
-      if (movDir.y == 0)
+      if (movDir.y != -stats.GetSpeed())
         movDir.y = -stats.GetSpeed();
       else 
       movDir.y = 0;
     } else if (key == 's') {
-      if (movDir.y == 0)
+      if (movDir.y != stats.GetSpeed())
         movDir.y = stats.GetSpeed();
       else 
       movDir.y = 0;
