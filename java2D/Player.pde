@@ -1,22 +1,11 @@
-class Player {
+class Player extends Agent {
+  
   public Stats stats = new Stats();
 
-  //The players current position
-  public PVector curPos = new PVector(width/2,height/2);
-  
-  //The direction to move the player
-  public PVector movDir = new PVector();
-
-
-
-  //TODO CHANGE TO BODY
-  
-  
-  //Move the player
-  public void Move() {
-    curPos.x += movDir.x;
-    curPos.y += movDir.y;
+  public Player(float x, float y,float w, float h){
+    super(x,y,w,h);
   }
+   
 
 
   //Check if the player has stopped holding down a key
@@ -58,12 +47,5 @@ class Player {
       }
     }
     //System.out.println(movDir.toString());
-  }
-
-  public void show() {
-    //Move player
-    Move();
-    fill(0,255,0);
-    rect(curPos.x, curPos.y, 55, 55);
   }
 }

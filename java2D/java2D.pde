@@ -13,6 +13,7 @@ Doorway test;
 //Player Variable
 Player player;
 
+
 void setup() {
 
   box2d = new Box2DProcessing(this);
@@ -20,7 +21,8 @@ void setup() {
 
   size(800, 800);
 
-  player = new Player();
+  player = new Player(width/2, height/2, 20, 20);
+
   test = new Doorway(400, height-11, true);
 }
 
@@ -28,7 +30,7 @@ void draw() {
   clear();
   background(255);
   test.show();
-  player.show();
+  player.display();
 }
 
 void keyPressed() {
