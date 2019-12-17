@@ -12,10 +12,10 @@ class Inventory implements IUi {
   public Inventory() {
     items = new ArrayList<Item>();
 
-    int offset = -5;
-    int startX = width-50;
-    int startY = height -50;
-    int buttonSize = 40;
+    int offset = -8;
+    int startX = width - 80;
+    int startY = height - 80;
+    int buttonSize = 50;
 
     for (int y = 0; y < bagSize / 2; y ++) {
       for (int x = 0; x < bagSize / 2; x++) {
@@ -34,15 +34,15 @@ class Inventory implements IUi {
   public void AddItem(Item item) {
     items.add(item);
   }
-  
-  public void keyPressed(){
-    if(key == 'b'){
-        ToggleInventory();
+
+  public void keyPressed() {
+    if (key == 'b') {
+      ToggleInventory();
     }
   }
-  
-  public void ToggleInventory(){
-     isOpen = !isOpen; 
+
+  public void ToggleInventory() {
+    isOpen = !isOpen;
   }
 
   //Close inventory ui and do sound effect etc
@@ -72,12 +72,12 @@ class Inventory implements IUi {
 
     return result;
   }
-  
-  public void display(){
-     if(isOpen){
-        for(Button btn: buttons){
-          btn.display();
-        }
-     }
+
+  public void display() {
+    if (isOpen) {
+      for (Button btn : buttons) {
+        btn.display();
+      }
+    }
   }
 }

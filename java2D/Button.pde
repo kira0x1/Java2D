@@ -7,6 +7,9 @@
  */
 
 class Button implements IUi {
+  
+  String backgroundImagePath = "assets/button.png";
+  PImage bgImage;
 
   int rectX, rectY;      // Position of square button
   int rectSize = 90;     // Diameter of rect
@@ -16,6 +19,10 @@ class Button implements IUi {
   boolean rectOver = false;
 
   public Button(int x, int y, int size) {
+    
+    bgImage = new PImage();
+    bgImage = loadImage(backgroundImagePath);
+    
     rectColor = color(0);
     rectHighlight = color(51);
     baseColor = color(102);
@@ -29,14 +36,20 @@ class Button implements IUi {
   public void display() {
     update(mouseX, mouseY);
  
+     
 
     if (rectOver) {
       fill(rectHighlight);
     } else {
       fill(rectColor);
     }
-    stroke(255);
-    rect(rectX, rectY, rectSize, rectSize);
+    
+    
+    //stroke(255);
+    //rect(rectX, rectY, rectSize, rectSize);
+    
+    
+    image(bgImage, rectX, rectY, rectSize, rectSize);
   }
 
   public void update(int x, int y) {
