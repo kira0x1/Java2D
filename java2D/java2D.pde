@@ -55,7 +55,10 @@ void setup() {
 }
 
 void draw() {
+//<<<<<<< HEAD
   //println((int)random(2));
+//=======
+//ad>>>>>>> d2b44a1b149b5a066c6f7139c47fe422b28b66ca
   strokeWeight(0);
   background(255);
   
