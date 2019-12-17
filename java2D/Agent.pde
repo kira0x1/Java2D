@@ -1,10 +1,13 @@
 class Agent {
-  Body body; 
+  protected Body body; 
   float w = 5;
   float h = 5;
+  
+  protected color agentColor = color(127);
 
-  public Vec2 curPos = new Vec2(0, 0);
-  public Vec2 movDir = new Vec2(0, 0);
+  protected Vec2 curPos = new Vec2(0, 0);
+  protected Vec2 movDir = new Vec2(0, 0);
+ 
 
   public Agent() {
     this(width/2, height/2, 20, 20);
@@ -34,16 +37,20 @@ class Agent {
   public void display() {
     Move();
     Vec2 pos = box2d.getBodyPixelCoord(body);
-    pos.add(movDir);
 
     rectMode(CENTER);
     pushMatrix();
-    fill(127);
+    
+    
+    //Color player
+    fill(agentColor);
+    
+    //Translate player
     translate(pos.x, pos.y);
     
+    //Add the movement velocity
     body.setLinearVelocity(movDir);
-    stroke(0);
-    strokeWeight(2);
+    
     rect(0, 0, w, h);
     popMatrix();
   }
