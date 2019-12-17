@@ -30,7 +30,7 @@ void setup() {
 
   test = new Doorway(400, height-11, true);
   
-  for(int i = 0; i < 1; i ++){
+  for(int i = 0; i < 5; i ++){
      Box box = new Box(10,10);
      box.body.applyForceToCenter(new Vec2(5550,-5510));  
      boxes.add(box);
@@ -72,6 +72,8 @@ void beginContact(Contact cp) {
   // Get our objects that reference these bodies
   Object o1 = b1.getUserData();
   Object o2 = b2.getUserData();
+  
+  
 }
 
 

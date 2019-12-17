@@ -19,9 +19,9 @@ class Player extends Agent {
      movDir.x = 0; 
     }
     
-    if(key == 's' && movDir.y == stats.GetSpeed()){
+    if(key == 's' && movDir.y == -stats.GetSpeed()){
        movDir.y = 0; 
-    }else if (key == 'w' && movDir.y == -stats.GetSpeed()){
+    }else if (key == 'w' && movDir.y == stats.GetSpeed()){
        movDir.y = 0; 
     }
   }
@@ -41,12 +41,12 @@ class Player extends Agent {
     }
 
     if (key == 'w') {
-      if (movDir.y != -stats.GetSpeed()) {
-        movDir.y = -stats.GetSpeed();
-      }
-    } else if (key == 's') {
       if (movDir.y != stats.GetSpeed()) {
         movDir.y = stats.GetSpeed();
+      }
+    } else if (key == 's') {
+      if (movDir.y != -stats.GetSpeed()) {
+        movDir.y = -stats.GetSpeed();
       }
     }
     //System.out.println(movDir.toString());

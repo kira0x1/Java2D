@@ -12,7 +12,7 @@ class Agent {
 
   //Move the player
   public void Move() {
-    curPos.x += movDir.x;
+    curPos.x -= movDir.x;
     curPos.y += movDir.y;
   }
 
@@ -39,7 +39,9 @@ class Agent {
     rectMode(CENTER);
     pushMatrix();
     fill(127);
-    translate(curPos.x, curPos.y);
+    translate(pos.x, pos.y);
+    
+    body.setLinearVelocity(movDir);
     stroke(0);
     strokeWeight(2);
     rect(0, 0, w, h);
@@ -67,7 +69,7 @@ class Agent {
 
     //Define body
     BodyDef bd = new BodyDef();
-    bd.type = BodyType.DYNAMIC;
+    bd.type = BodyType.KINEMATIC;
     bd.position.set(box2d.coordPixelsToWorld(center));
 
     body = box2d.createBody(bd);
