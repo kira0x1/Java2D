@@ -2,7 +2,7 @@ class Stat {
   private String name;
   private int currentValue;
   private int baseValue = 10;
-  private ArrayList<StatMod> mods;
+  private ArrayList<StatMod> mods = new ArrayList<StatMod>();
   private boolean isDirty = true;
 
   public Stat(String name, int baseValue) {

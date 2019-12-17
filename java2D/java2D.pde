@@ -10,16 +10,26 @@ Box2DProcessing box2d;
 //bully me if i dont anotate code
 Doorway test;
 
-void setup() {
+//Player Variable
+Player player;
 
+void setup() {
+  
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
 
   size(800, 800);
 
+  player = new Player();
   test = new Doorway(400,400,true);
 }
 
 void draw() {
+  clear();
   test.show();
+  player.show();  
+}
+
+void keyPressed(){
+ player.keyPressed(); 
 }
