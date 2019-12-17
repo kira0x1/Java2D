@@ -13,8 +13,8 @@ class Inventory implements IUi {
     items = new ArrayList<Item>();
 
     int offset = -5;
-    int startX = width-100;
-    int startY = height - 100;
+    int startX = width-50;
+    int startY = height -50;
     int buttonSize = 40;
 
     for (int y = 0; y < bagSize / 2; y ++) {
