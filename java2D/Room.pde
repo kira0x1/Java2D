@@ -28,6 +28,9 @@ class Room {
       wall.show();
     }
   }
+  public ArrayList<Direction> getDirection() {
+    return doorwayDirections;
+  }
   
   
   
