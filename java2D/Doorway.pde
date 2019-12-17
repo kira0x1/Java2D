@@ -1,5 +1,5 @@
 class Doorway {
-  float gapSize = 200;
+  float gapSize = 100;
   float standW;
   ArrayList<Wall> walls = new ArrayList<Wall>();
   
@@ -19,7 +19,6 @@ class Doorway {
       float xInpTwo = maxSize - (x-(gapSize/2))/2;
       float lenInpTwo = remDist - (gapSize/2);
       walls.add(new Wall(xInpTwo,y,true,lenInpTwo));
-      
     }
     else {
       
