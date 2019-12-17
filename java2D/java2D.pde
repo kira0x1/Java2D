@@ -17,9 +17,9 @@ void setup() {
 
   size(800, 800);
 
-  testing = new Wall(width/2, height/2, 100, 50);
+
 }
 
 void draw() {
-  testing.show();
+  
 }

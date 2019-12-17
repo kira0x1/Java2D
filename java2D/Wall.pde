@@ -1,13 +1,20 @@
 class Wall {
 
   Body body;
+  float standW = 20;
   float r = 10;
   float w;
   float h;
 
-  Wall(float x, float y, float w_, float h_) {
-    w = w_;
-    h = h_;
+  Wall(float x, float y, boolean hoz, float len) {
+    if (hoz) {
+      w = len;
+      h = standW;
+    }
+    else {
+      w = standW;
+      h = len;
+    }
 
     //step 1 - body definition
     BodyDef bd = new BodyDef();
