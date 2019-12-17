@@ -4,7 +4,7 @@ class Player extends Agent {
   private Inventory inventory = new Inventory();
   
   private void setup(){
-    //inventory.AddItem(Items.appleItem);
+    inventory.AddItem(Items.appleItem);
      System.out.println(inventory.toString());
   }
 

@@ -1,5 +1,5 @@
 public class Item {
-  private  String name;
+  public  String name;
   //private String description;
   //private Stats stats;
   //private PImage icon;
@@ -10,12 +10,12 @@ public class Item {
   //  this.stats = stats;
   //  this.icon = icon;
   //}
-  
-  public Item(String name){
-   this.name = name; 
+
+  public Item(String name) {
+    this.name = name;
   }
 
-  public String GetName() {
+  public String getName() {
     return name;
   }
 

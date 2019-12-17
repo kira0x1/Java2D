@@ -8,7 +8,7 @@ import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
 
-public static PApplet app;
+public static java2D app;
 
 
 Box2DProcessing box2d;
@@ -24,6 +24,7 @@ ArrayList<Box> boxes = new ArrayList<Box>();
 void setup() {
 
   app = this;
+  Items.init();
   
   box2d = new Box2DProcessing(this);
   box2d.createWorld();

@@ -1,5 +1,5 @@
 class Inventory {
-  private ArrayList<Item> items;
+  private ArrayList<Item> items = new ArrayList<Item>();
 
   //If the player has their inventory open. Use this to know when to draw the ui on the screen
   public boolean isOpen;
@@ -37,7 +37,7 @@ class Inventory {
      int count = 1;
      for(Item item: items){
         
-       result += count+": " + item.name + "\n";      
+       result += count +": " + item.name + "\n";      
        count ++;
      }
     
