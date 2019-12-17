@@ -5,43 +5,50 @@ class Player {
   public PVector movDir = new PVector();
 
 
-
   public void Move() {
     curPos.x += movDir.x;
     curPos.y += movDir.y;
+
+  }
+
+  void keyReleased() {
+    if (key == 'd' && movDir.x == stats.GetSpeed()) {
+      movDir.x = 0;
+    }else if(key == 'a' && movDir.x == -stats.GetSpeed()){
+     movDir.x = 0; 
+    }
+    
+    if(key == 's' && movDir.y == stats.GetSpeed()){
+       movDir.y = 0; 
+    }else if (key == 'w' && movDir.y == -stats.GetSpeed()){
+       movDir.y = 0; 
+    }
   }
 
 
 
-  void keyPressed() {
+  void keyPressed()
+  {
     if (key == 'd') {
       if (movDir.x != stats.GetSpeed()) {
         movDir.x = stats.GetSpeed();
-      } else {
-        movDir.x = 0;
       }
     } else if (key == 'a') {
       if (movDir.x != -stats.GetSpeed()) {
         movDir.x = -stats.GetSpeed();
-      } else {
-        movDir.x = 0;
       }
     }
 
     if (key == 'w') {
-      if (movDir.y != -stats.GetSpeed())
+      if (movDir.y != -stats.GetSpeed()) {
         movDir.y = -stats.GetSpeed();
-      else 
-      movDir.y = 0;
+      }
     } else if (key == 's') {
-      if (movDir.y != stats.GetSpeed())
+      if (movDir.y != stats.GetSpeed()) {
         movDir.y = stats.GetSpeed();
-      else 
-      movDir.y = 0;
+      }
     }
-
-
-    System.out.println(movDir.toString());
+    //System.out.println(movDir.toString());
   }
 
   public void show() {

@@ -33,3 +33,7 @@ void draw() {
 void keyPressed(){
  player.keyPressed(); 
 }
+
+void keyReleased(){
+ player.keyReleased(); 
+}
