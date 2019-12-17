@@ -20,7 +20,7 @@ class Wall {
     BodyDef bd = new BodyDef();
     bd.type = BodyType.STATIC;
     bd.position.set(box2d.coordPixelsToWorld(x, y));
-
+    
     //step 2 = make body
     body = box2d.createBody(bd);
 

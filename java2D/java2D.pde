@@ -8,7 +8,7 @@ import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 Box2DProcessing box2d;
 //bully me if i dont anotate code
-Wall testing;
+Doorway test;
 
 void setup() {
 
@@ -17,9 +17,9 @@ void setup() {
 
   size(800, 800);
 
-
+  test = new Doorway(400,400,true);
 }
 
 void draw() {
-  
+  test.show();
 }
