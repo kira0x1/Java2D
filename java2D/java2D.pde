@@ -8,6 +8,7 @@ import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
 
+//Static reference of this app so we can use static classes
 public static java2D app;
 
 
@@ -22,8 +23,11 @@ ArrayList<Box> boxes = new ArrayList<Box>();
 
 
 void setup() {
-
+  
+  //Set app to this class
   app = this;
+  
+  //Initilize static class for items ( This is basically a database for items )
   Items.init();
   
   box2d = new Box2DProcessing(this);
@@ -34,10 +38,13 @@ void setup() {
 
   size(800, 800);
 
+
+  //Create the player
   player = new Player(width/2, height/2, 30, 30);
 
   test = new Doorway(400, height-11, true);
   
+  //Add some boxes for collision testing
   for(int i = 0; i < 5; i ++){
      Box box = new Box(10,10);
      box.body.applyForceToCenter(new Vec2(5550,-5510));  
@@ -56,8 +63,11 @@ void draw() {
   
   
   test.show();
+  
+  //Show the player
   player.display();
   
+  //Show the boxes
   for(Box box: boxes){
     box.display(); 
   }
