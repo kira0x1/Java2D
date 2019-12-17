@@ -1,3 +1,4 @@
+import java.util.*; 
 import shiffman.box2d.*;
 import org.jbox2d.common.*;
 import org.jbox2d.dynamics.joints.*;
@@ -7,6 +8,8 @@ import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
+// testing room creation
+Room test;
 
 //Static reference of this app so we can use static classes
 public static java2D app;
@@ -14,7 +17,6 @@ public static java2D app;
 
 Box2DProcessing box2d;
 //bully me if i dont anotate code
-Doorway test;
 
 //Player Variable
 Player player;
@@ -42,7 +44,7 @@ void setup() {
   //Create the player
   player = new Player(width/2, height/2, 30, 30);
 
-  test = new Doorway(400, height-11, true);
+  test = new Room(2,Direction.SOUTH);
   
   //Add some boxes for collision testing
   for(int i = 0; i < 5; i ++){
@@ -53,8 +55,7 @@ void setup() {
 }
 
 void draw() {
-  clear();
-  
+  //println((int)random(2));
   strokeWeight(0);
   background(255);
   

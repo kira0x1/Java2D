@@ -8,8 +8,30 @@ class Wall {
   
   color wallColor = color(193,98,66);
   
-
+  //constructor for room edges
+  Wall(Direction dir) {
+    if (dir == Direction.NORTH) {
+     init(width/2f,standW/4f,true,(float)width);
+    }
+    else if (dir == Direction.SOUTH) {
+      init(width/2f,height-(standW/4),true,width);
+    }
+    else if (dir == Direction.EAST) {
+      init(standW/4,height/2f,false,height);
+    }
+    //west
+    else {
+      init(width - (standW/4),height/2f,false,height);
+    }
+  }
+  
+  //normals constuctor
   Wall(float x, float y, boolean hoz, float len) {
+    init(x,y,hoz,len);
+  }
+  
+  //constructor information delegation
+  private void init(float x, float y, boolean hoz, float len) {
     if (hoz) {
       w = len;
       h = standW;
@@ -18,7 +40,10 @@ class Wall {
       w = standW;
       h = len;
     }
-
+    bodyConst(x,y);
+    
+  }
+  public void bodyConst(float x, float y) {
     //step 1 - body definition
     BodyDef bd = new BodyDef();
     bd.type = BodyType.STATIC;
@@ -38,7 +63,7 @@ class Wall {
     fd.shape = sd;
     //parameters
     fd.density = 1;
-    fd.friction = 0;
+    fd.friction = 0.5;
     fd.restitution = 0.5;
 
     body.createFixture(fd);

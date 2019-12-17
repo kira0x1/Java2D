@@ -3,7 +3,25 @@ class Doorway {
   float standW;
   ArrayList<Wall> walls = new ArrayList<Wall>();
   
+  Doorway(Direction dir) {
+    if (dir == Direction.NORTH) {
+      init(width/2,standW/2,true);
+    }
+    else if (dir == Direction.SOUTH) {
+      init(width/2,height-(standW/2),true);
+    }
+    else if (dir == Direction.EAST) {
+      init(standW/2,height/2,false);
+    }
+    //west
+    else {
+      init(width - (standW/2),height/2,false);
+    }
+  }
   Doorway(float x, float y, boolean hoz) {
+    init(x,y,hoz);
+  }
+  private void init(float x, float y, boolean hoz) {
     //max size of the appropriate axis
     float maxSize;
     float remDist;
