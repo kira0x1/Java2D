@@ -5,6 +5,9 @@ class Wall {
   float r = 10;
   float w;
   float h;
+  
+  color wallColor = color(193,98,66);
+  
 
   Wall(float x, float y, boolean hoz, float len) {
     if (hoz) {
@@ -46,7 +49,7 @@ class Wall {
 
     pushMatrix();
     translate(pos.x, pos.y);
-    fill(100);
+    fill(wallColor);
     stroke(0);
     rectMode(CENTER);
     rotate(-a);
