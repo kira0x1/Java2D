@@ -1,6 +1,7 @@
 class UI {
 
   public ArrayList<IUi> uis = new ArrayList<IUi>();
+ 
 
   public void display() {
     for (IUi ui : uis) {

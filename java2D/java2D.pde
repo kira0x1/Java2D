@@ -13,8 +13,9 @@ Room test;
 
 //Static reference of this app so we can use static classes
 public static java2D app;
-
 public static UI ui;
+
+private CursorManager cursorManager;
 
 Box2DProcessing box2d;
 //bully me if i dont anotate code
@@ -35,6 +36,10 @@ void setup() {
   
   //Init ui
   ui = new UI();
+  
+  //Init CursorManager
+  cursorManager = new CursorManager();
+
 
   box2d = new Box2DProcessing(this);
   box2d.createWorld();

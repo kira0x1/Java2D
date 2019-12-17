@@ -11,8 +11,8 @@ class Button implements IUi {
   int transparency = 150;
 
 
-  String backgroundImagePath = "assets/button.png";
-  String bgHightltedPath = "assets/highlighted.png";
+  String backgroundImagePath = "assets/brown-light.png";
+  String bgHightltedPath = "assets/brown-dark.png";
 
   PImage bgImage;
   PImage bgHighlitedImage;
@@ -25,8 +25,6 @@ class Button implements IUi {
   boolean rectOver = false;
 
   public Button(int x, int y, int size) {
-
-
 
     //Load Images
     bgImage = new PImage();
@@ -67,9 +65,6 @@ class Button implements IUi {
     }
   }
 
-  private void Blur() {
-  }
-
   public void mousePressed() {
     if (rectOver) {
       currentColor = rectColor;
@@ -79,16 +74,6 @@ class Button implements IUi {
   boolean overRect(int x, int y, int width, int height) {
     if (mouseX >= x && mouseX <= x+width && 
       mouseY >= y && mouseY <= y+height) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  boolean overCircle(int x, int y, int diameter) {
-    float disX = x - mouseX;
-    float disY = y - mouseY;
-    if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
       return true;
     } else {
       return false;
