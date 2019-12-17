@@ -53,8 +53,6 @@ void setup() {
 }
 
 void draw() {
-  clear();
-  
   strokeWeight(0);
   background(255);
   
