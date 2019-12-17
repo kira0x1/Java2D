@@ -39,6 +39,8 @@ class Player extends Agent {
   //Check if player is holding w,a,s,d
   void keyPressed()
   {
+     inventory.keyPressed();
+    
     if (key == 'd') {
       if (movDir.x != stats.GetSpeed()) {
         movDir.x = stats.GetSpeed();
