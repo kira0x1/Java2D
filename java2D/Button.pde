@@ -8,7 +8,7 @@
 
 class Button implements IUi {
 
-  int transparency = 150;
+  int transparency = 200;
 
 
   String backgroundImagePath = "assets/brown-light.png";
