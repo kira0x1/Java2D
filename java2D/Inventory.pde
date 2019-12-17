@@ -32,7 +32,7 @@ class Inventory {
        return "Empty Inventory";
     }
     
-    String result = "";
+    String result = "Inventory\n";
     
      int count = 1;
      for(Item item: items){
