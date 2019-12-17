@@ -69,7 +69,7 @@ class Agent {
 
     //Define body
     BodyDef bd = new BodyDef();
-    bd.type = BodyType.KINEMATIC;
+    bd.type = BodyType.DYNAMIC;
     bd.position.set(box2d.coordPixelsToWorld(center));
 
     body = box2d.createBody(bd);
