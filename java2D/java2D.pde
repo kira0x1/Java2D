@@ -14,27 +14,27 @@ Doorway test;
 Player player;
 
 void setup() {
-  
+
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
 
   size(800, 800);
 
   player = new Player();
-  test = new Doorway(400,400,true);
+  test = new Doorway(400, height-11, true);
 }
 
 void draw() {
   clear();
   background(255);
   test.show();
-  player.show();  
+  player.show();
 }
 
-void keyPressed(){
- player.keyPressed(); 
+void keyPressed() {
+  player.keyPressed();
 }
 
-void keyReleased(){
- player.keyReleased(); 
+void keyReleased() {
+  player.keyReleased();
 }
