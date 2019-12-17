@@ -25,4 +25,22 @@ class Inventory {
   public void OpenInventory() {
     isOpen = true;
   }
+  
+  @Override
+  public String toString(){
+    if(items.size() == 0){
+       return "Empty Inventory";
+    }
+    
+    String result = "";
+    
+     int count = 1;
+     for(Item item: items){
+        
+       result += count+": " + item.name + "\n";      
+       count ++;
+     }
+    
+   return result; 
+  }
 }

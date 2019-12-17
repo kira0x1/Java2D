@@ -1,13 +1,21 @@
 class Player extends Agent {
   
-  public Stats stats = new Stats();
+  private Stats stats = new Stats();
+  private Inventory inventory = new Inventory();
+  
+  private void setup(){
+    //inventory.AddItem(Items.appleItem);
+     System.out.println(inventory.toString());
+  }
 
-  public Player(float x, float y,float w, float h){
+  public Player(float x, float y,float w, float h){  
     super(x,y,w,h);
+    setup();
   }
 
    public Player(){
-    super(); 
+    super();
+    setup();
    }
 
 

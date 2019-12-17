@@ -6,6 +6,11 @@ import org.jbox2d.collision.shapes.Shape;
 import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
+
+
+public static PApplet app;
+
+
 Box2DProcessing box2d;
 //bully me if i dont anotate code
 Doorway test;
@@ -18,6 +23,8 @@ ArrayList<Box> boxes = new ArrayList<Box>();
 
 void setup() {
 
+  app = this;
+  
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
  
