@@ -8,6 +8,8 @@
 
 class Button implements IUi {
 
+  int transparency = 150;
+
 
   String backgroundImagePath = "assets/button.png";
   String bgHightltedPath = "assets/highlighted.png";
@@ -30,9 +32,9 @@ class Button implements IUi {
     bgImage = new PImage();
     bgImage = loadImage(backgroundImagePath);
 
-   bgHighlitedImage = new PImage();
-   bgHighlitedImage = loadImage(bgHightltedPath);
-  
+    bgHighlitedImage = new PImage();
+    bgHighlitedImage = loadImage(bgHightltedPath);
+
 
     rectColor = color(0);
     rectHighlight = color(51);
@@ -48,11 +50,12 @@ class Button implements IUi {
     update(mouseX, mouseY);
 
 
+    tint(255, transparency);
 
     if (rectOver) {
       image(bgHighlitedImage, rectX, rectY, rectSize, rectSize);
     } else {
-     image(bgImage, rectX, rectY, rectSize, rectSize);
+      image(bgImage, rectX, rectY, rectSize, rectSize);
     }
   }
 
