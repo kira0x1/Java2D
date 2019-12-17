@@ -26,6 +26,7 @@ void setup() {
 
 void draw() {
   clear();
+  background(255);
   test.show();
   player.show();  
 }
