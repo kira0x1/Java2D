@@ -2,19 +2,22 @@ class Agent {
   protected Body body; 
   float w = 5;
   float h = 5;
-  
-  protected color agentColor = color(127);
+
+  protected color agentColor = color(127,100);
 
   protected Vec2 curPos = new Vec2(0, 0);
   protected Vec2 movDir = new Vec2(0, 0);
-  
+
   protected PImage imageLeft;
   protected PImage imageRight;
   protected PImage imageDown;
   protected PImage imageUp;
-  
+
   protected PImage playerImage;
- 
+
+
+  //Show the rect collider
+  protected boolean debugPhysics = true;
 
   public Agent() {
     this(width/2, height/2, 20, 20);
@@ -29,12 +32,12 @@ class Agent {
 
     //create box
     makeBody(curPos, w, h);
-    
+
     imageDown = loadImage("assets/player/player_down.png");
     playerImage = imageDown;
   }
-  
-    //Move the player
+
+  //Move the player
   public void Move() {
     curPos.x -= movDir.x;
     curPos.y += movDir.y;
@@ -51,22 +54,25 @@ class Agent {
 
     rectMode(CENTER);
     pushMatrix();
-    
-    
-    //Color player
-    //fill(agentColor);
-    
+
+    //TODO Change  name to agentImage
     //Display the player sprite
-    image(playerImage, pos.x - playerImage.width/2,pos.y - playerImage.height/2);
-   
-    
-    //Translate player
+    image(playerImage, pos.x - playerImage.width/2, pos.y - playerImage.height/2);
+
+    //Translate agent
     translate(pos.x, pos.y);
-    
+
     //Add the movement velocity
     body.setLinearVelocity(movDir);
-    
-    //rect(0, 0, w, h);
+
+    if (debugPhysics) {
+
+      //Color player
+      fill(agentColor);
+
+      rect(0, 0, w, h);
+    }
+
     popMatrix();
   }
 
