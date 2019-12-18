@@ -16,6 +16,10 @@ class Button implements IUi {
 
   PImage bgImage;
   PImage bgHighlitedImage;
+  
+  PImage itemImage;
+  Item item;
+  boolean hasItem;
 
   int rectX, rectY;      // Position of square button
   int rectSize = 90;     // Diameter of rect
@@ -43,6 +47,12 @@ class Button implements IUi {
     rectY = y;
     rectSize = size;
   }
+  
+  public void SetItem(Item item){
+   this.item = item;
+   itemImage = item.GetIcon();
+   hasItem = true;
+  }
 
   public void display() {
     update(mouseX, mouseY);
@@ -54,6 +64,10 @@ class Button implements IUi {
       image(bgHighlitedImage, rectX, rectY, rectSize, rectSize);
     } else {
       image(bgImage, rectX, rectY, rectSize, rectSize);
+    }
+    
+    if(hasItem){
+       image(itemImage,rectX,rectY,rectSize/2,rectSize/2); 
     }
   }
 
@@ -78,5 +92,9 @@ class Button implements IUi {
     } else {
       return false;
     }
+  }
+  
+  public boolean HasItem(){
+     return hasItem; 
   }
 }
