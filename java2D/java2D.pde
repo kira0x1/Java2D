@@ -8,8 +8,8 @@ import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
-// testing room creation
-Room test;
+// testing room and level creation
+Level test;
 
 //Static reference of this app so we can use static classes
 public static java2D app;
@@ -55,7 +55,7 @@ void setup() {
   //Create the player
   player = new Player(width/2, height/2, 30, 30);
 
-  test = new Room(2, Direction.SOUTH);
+  test = new Level(4, 11);
 
   //Add some boxes for collision testing
   for (int i = 0; i < 5; i ++) {

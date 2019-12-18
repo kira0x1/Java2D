@@ -2,24 +2,14 @@ class Room {
   ArrayList<Wall> walls = new ArrayList<Wall>();
   ArrayList<Doorway> doors = new ArrayList<Doorway>();
   ArrayList<Direction> doorwayDirections = new ArrayList<Direction>();
+  ArrayList<Direction> wallDirections;
+  
   
   Room(int possibleDoors,Direction entryPoint) {
     doorwayDirections.add(entryPoint);
-    
-    for (Direction dir: DirectionRemover(entryPoint)) {
-      int chance = (int)random(101);
-      if (chance < 33 && possibleDoors != 0) {
-        possibleDoors -= 1;
-        doorwayDirections.add(dir);
-      }
-    }
-    for (Direction dir: DirectionRemover(doorwayDirections)) {
-      walls.add(new Wall(dir));
-    }
-    for (Direction passage: doorwayDirections) {
-      doors.add(new Doorway(passage));
-    }
+    wallDirections = DirectionRemover(entryPoint);
   }
+  
   public void show() {
     for (Doorway door: doors) {
       door.show();
@@ -28,10 +18,30 @@ class Room {
       wall.show();
     }
   }
-  public ArrayList<Direction> getDirection() {
+  
+  public ArrayList<Direction> getDoorDirection() {
     return doorwayDirections;
   }
-  
-  
+  public ArrayList<Direction> getWallDirection() {
+    return wallDirections;
+  }
+  //every room only starts with one door the one it entered through
+  public void wallDoorCreator() {
+    
+    for (Direction dir: wallDirections) {
+      walls.add(new Wall(dir));
+    }
+    for (Direction passage: doorwayDirections) {
+      doors.add(new Doorway(passage));
+    }
+  }
+  public void changeWallToDoor(Direction input) {
+    if (wallDirections.contains(input)) {
+      wallDirections.remove(input);
+      doorwayDirections.add(input);
+      
+    }
+    else { print("tried to remove wall from a none valid direction"); }
+  }
   
 }
