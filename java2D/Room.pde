@@ -8,6 +8,7 @@ class Room {
   Room(Direction entryPoint) {
     doorwayDirections.add(entryPoint);
     wallDirections = DirectionRemover(entryPoint);
+    println(" room const wall di" + wallDirections);
   }
   
   public void show() {
@@ -22,7 +23,7 @@ class Room {
   public ArrayList<Direction> getDoorDirection() {
     return doorwayDirections;
   }
-  public ArrayList<Direction> getWallDirection() {
+  public ArrayList<Direction> getWallDirections() {
     return wallDirections;
   }
   //every room only starts with one door the one it entered through

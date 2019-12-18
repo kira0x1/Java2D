@@ -1,5 +1,5 @@
 
-public enum Direction { NORTH,SOUTH,EAST,WEST }  
+public enum Direction { NORTH,SOUTH,EAST,WEST,ERROR }  
 
 ArrayList<Direction> DirectionRemover(Direction one) {
     ArrayList<Direction> fullSet = new ArrayList<Direction>();
@@ -53,5 +53,15 @@ ArrayList<Direction> DirectionRemover(Direction one) {
     }
     return fullSet;
 
+  }
+  Direction dirInvert(Direction dir) {
+    Direction retVal = Direction.ERROR;
+    switch(dir) {
+      case NORTH: dir = Direction.SOUTH; break;
+      case SOUTH: dir = Direction.NORTH; break;
+      case EAST:  dir = Direction.WEST; break;
+      case WEST:  dir = Direction.EAST; break;
+    }
+    return retVal;
   }
   

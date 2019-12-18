@@ -55,7 +55,7 @@ void setup() {
   //Create the player
   player = new Player(width/2, height/2, 30, 30);
 
-  test = new Level(3, 11);
+  test = new Level(5, 11);
 
   //Add some boxes for collision testing
   for (int i = 0; i < 5; i ++) {
