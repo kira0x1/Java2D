@@ -5,7 +5,7 @@ class Level {
     map = new Map(maxSize);
     //first room always starts at the south
     rooms.add(new Room(Direction.SOUTH));
-    roomSpawner(roomAmount);
+    roomSpawner(rooms.get(0), roomAmount);
   }
   void roomSpawner(int possibleRooms) {
     int chanceIncrease = 0;
@@ -37,6 +37,7 @@ class Level {
       room.wallDoorCreator();
     }
   }
+
   //just a temp testing function optamise and animate later
   void show() {
     for (Room room: rooms) {
