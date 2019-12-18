@@ -37,9 +37,8 @@ class Room {
   }
   public void changeWallToDoor(Direction input) {
     if (wallDirections.contains(input)) {
-      wallDirections.remove(input);
+      //wallDirections.remove(input);
       doorwayDirections.add(input);
-      
     }
     else { print("tried to remove wall from a none valid direction"); }
   }
