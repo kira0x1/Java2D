@@ -17,9 +17,10 @@ class Button implements IUi {
   PImage bgImage;
   PImage bgHighlitedImage;
   
-  PImage itemImage;
-  Item item;
-  boolean hasItem;
+  private PImage itemImage;
+  private Item item;
+  private boolean hasItem;
+  private int iconPadding = 15;
 
   int rectX, rectY;      // Position of square button
   int rectSize = 90;     // Diameter of rect
@@ -67,7 +68,8 @@ class Button implements IUi {
     }
     
     if(hasItem){
-       image(itemImage,rectX,rectY,rectSize/2,rectSize/2); 
+      int iconSize = rectSize - iconPadding;
+       image(itemImage,rectX + rectSize/2 - iconSize/2,rectY + rectSize /2 - iconSize /2 ,iconSize, iconSize); 
     }
   }
 
