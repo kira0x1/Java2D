@@ -10,7 +10,6 @@ public class CursorManager implements IUi {
 
 
   public void display() {
-    System.out.println("meow");
     cursor(cursor);
   }
 }
