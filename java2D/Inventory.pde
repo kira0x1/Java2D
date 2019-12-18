@@ -37,6 +37,14 @@ class Inventory implements IUi {
 
   public void AddItem(Item item) {
     items.add(item);
+
+    for (int i = buttons.size()-1; i > 0; i--) {
+      Button btn = buttons.get(i);
+      if (!btn.HasItem()) {
+        btn.SetItem(item);
+        break;
+      }
+    }
   }
 
   public void keyPressed() {
