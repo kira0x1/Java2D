@@ -1,9 +1,10 @@
 class Agent {
+
   protected Body body; 
   float w = 5;
   float h = 5;
 
-  protected color agentColor = color(127,100);
+  protected color agentColor = color(127, 100);
 
   protected Vec2 curPos = new Vec2(0, 0);
   protected Vec2 movDir = new Vec2(0, 0);
@@ -13,11 +14,11 @@ class Agent {
   protected PImage imageDown;
   protected PImage imageUp;
 
-  protected PImage playerImage;
+  protected PImage agentImage;
 
 
   //Show the rect collider
-  protected boolean debugPhysics = true;
+  protected boolean debugPhysics = false;
 
   public Agent() {
     this(width/2, height/2, 20, 20);
@@ -33,14 +34,47 @@ class Agent {
     //create box
     makeBody(curPos, w, h);
 
-    imageDown = loadImage("assets/player/player_down.png");
-    playerImage = imageDown;
+    agentImage = imageDown;
+  }
+
+  public Agent(float x, float y, float w, float h, String left, String right, String up, String down) {
+    this.w = w;
+    this.h = h;
+
+    curPos = new Vec2(x, y);
+
+    //Create the collider
+    makeBody(curPos, w, h);
+
+
+    imageUp = loadImage(up);
+    imageDown = loadImage(down);
+    imageLeft = loadImage(left);
+    imageRight = loadImage(right);
+
+    agentImage = imageDown;
   }
 
   //Move the player
   public void Move() {
     curPos.x -= movDir.x;
     curPos.y += movDir.y;
+
+    if (movDir.x < 0) {
+      changeImage(imageLeft);
+    } else if (movDir.x > 0) {
+      changeImage(imageRight);
+    }
+
+    if (movDir.y > 0 ){
+      changeImage(imageUp);
+    }else if (movDir.y < 0){
+     changeImage(imageDown); 
+    }
+  }
+
+  private void changeImage(PImage image) {
+    agentImage = image;
   }
 
 
@@ -57,7 +91,7 @@ class Agent {
 
     //TODO Change  name to agentImage
     //Display the player sprite
-    image(playerImage, pos.x - playerImage.width/2, pos.y - playerImage.height/2);
+    image(agentImage, pos.x - agentImage.width/2, pos.y - agentImage.height/2);
 
     //Translate agent
     translate(pos.x, pos.y);
