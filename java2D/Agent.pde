@@ -14,6 +14,11 @@ class Agent {
   protected PImage imageDown;
   protected PImage imageUp;
 
+  protected Animation walkingDownAnimation;
+  protected Animation walkingUpAnimation;
+  protected Animation walkingLeftAnimation;
+  protected Animation walkingRightAnimation;
+
   protected PImage agentImage;
 
 
@@ -52,6 +57,11 @@ class Agent {
     imageLeft = loadImage(left);
     imageRight = loadImage(right);
 
+    walkingDownAnimation = new Animation("assets/player/walk_down_", "png", 3);
+    walkingUpAnimation = new Animation("assets/player/walk_up_", "png", 3);
+    walkingLeftAnimation = new Animation("assets/player/walk_left_", "png", 3);
+    walkingRightAnimation = new Animation("assets/player/walk_right_", "png", 3);
+
     agentImage = imageDown;
   }
 
@@ -61,15 +71,15 @@ class Agent {
     curPos.y += movDir.y;
 
     if (movDir.x < 0) {
-      changeImage(imageLeft);
+      changeImage(walkingLeftAnimation.GetImage());
     } else if (movDir.x > 0) {
-      changeImage(imageRight);
+      changeImage(walkingRightAnimation.GetImage());
     }
 
-    if (movDir.y > 0 ){
-      changeImage(imageUp);
-    }else if (movDir.y < 0){
-     changeImage(imageDown); 
+    if (movDir.y > 0 ) {
+      changeImage(walkingUpAnimation.GetImage());
+    } else if (movDir.y < 0) {
+      changeImage(walkingDownAnimation.GetImage());
     }
   }
 
