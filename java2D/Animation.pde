@@ -17,7 +17,7 @@ class Animation {
       String filename = imagePrefix + nf(i+1, 1) + "." + fileExtension;
       images[i] = loadImage(filename);
 
-      System.out.println("Loaded: " + filename);
+      //System.out.println("Loaded: " + filename);
       frame = (frame+1) % imageCount;
     }
   }
