@@ -8,20 +8,28 @@
 
 class Button implements IUi {
 
+
+  //How transparent the button is 
   int transparency = 200;
 
 
+  //BG IMAGE
   String backgroundImagePath = "assets/brown-light.png";
-  String bgHightltedPath = "assets/brown-dark.png";
-
   PImage bgImage;
+
+  //BG HIGHLIGHTED IMAGE
+  String bgHightltedPath = "assets/brown-dark.png";  
   PImage bgHighlitedImage;
-  
+
+
+  //ITEM ICON
   private PImage itemImage;
   private Item item;
   private boolean hasItem;
   private int iconPadding = 15;
 
+
+  //BUTTON
   int rectX, rectY;      // Position of square button
   int rectSize = 90;     // Diameter of rect
   color rectColor, baseColor;
@@ -35,10 +43,12 @@ class Button implements IUi {
     bgImage = new PImage();
     bgImage = loadImage(backgroundImagePath);
 
+    //Load the highlight image
     bgHighlitedImage = new PImage();
     bgHighlitedImage = loadImage(bgHightltedPath);
 
 
+    //Create a rect as a backup if theres no image
     rectColor = color(0);
     rectHighlight = color(51);
     baseColor = color(102);
@@ -48,11 +58,13 @@ class Button implements IUi {
     rectY = y;
     rectSize = size;
   }
-  
-  public void SetItem(Item item){
-   this.item = item;
-   itemImage = item.GetIcon();
-   hasItem = true;
+
+
+  //Set the buttons Item
+  public void SetItem(Item item) {
+    this.item = item;
+    itemImage = item.GetIcon();
+    hasItem = true;
   }
 
   public void display() {
@@ -66,13 +78,14 @@ class Button implements IUi {
     } else {
       image(bgImage, rectX, rectY, rectSize, rectSize);
     }
-    
-    if(hasItem){
+
+    if (hasItem) {
       int iconSize = rectSize - iconPadding;
-       image(itemImage,rectX + rectSize/2 - iconSize/2,rectY + rectSize /2 - iconSize /2 ,iconSize, iconSize); 
+      image(itemImage, rectX + rectSize/2 - iconSize/2, rectY + rectSize /2 - iconSize /2, iconSize, iconSize);
     }
   }
 
+  //Check if mouse is hovering over button 
   public void update(int x, int y) {
     if ( overRect(rectX, rectY, rectSize, rectSize) ) {
       rectOver = true;
@@ -95,8 +108,8 @@ class Button implements IUi {
       return false;
     }
   }
-  
-  public boolean HasItem(){
-     return hasItem; 
+
+  public boolean HasItem() {
+    return hasItem;
   }
 }
