@@ -1,7 +1,5 @@
 class Inventory implements IUi {
 
-  public int bagSize = 10;
-
   private ArrayList<Item> items = new ArrayList<Item>();
 
   //If the player has their inventory open. Use this to know when to draw the ui on the screen
@@ -14,12 +12,17 @@ class Inventory implements IUi {
   public Inventory() {
     items = new ArrayList<Item>();
 
-    int offset = - 8;
+    int offset = - 10;
     int startX = width - 120;
     int startY = height - 120;
-    int buttonSize = 50;
+    int buttonSize = 65;
+    int bagSize = 6;
 
-    bgBox = new BoxUI(startX-92, startY-100, 330, 350, true);
+
+    int windowSize = (bagSize /2) * (buttonSize + abs(offset));
+    int windowPadding = 15;
+
+    bgBox = new BoxUI((width - windowSize/2) - (120/2) - offset, (height - windowSize/2) - (120/2) - offset + windowPadding/2, windowSize + windowPadding, windowSize + windowPadding, true);
 
     for (int y = 0; y < bagSize / 2; y ++) {
       for (int x = 0; x < bagSize / 2; x++) {
