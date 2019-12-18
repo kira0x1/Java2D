@@ -5,7 +5,7 @@ class Player extends Agent {
   
   private void setup(){
     agentColor = color(0,200,180);
-    inventory.AddItem(Items.appleItem);
+    inventory.AddItem(Items.healthPot);
      System.out.println(inventory.toString());
   }
 
