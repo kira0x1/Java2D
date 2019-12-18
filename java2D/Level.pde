@@ -3,8 +3,11 @@ class Level {
   Map map;
   Level(int roomAmount,int maxSize) {
     map = new Map(maxSize);
+    //first room always starts at the south
+    rooms.add(new Room(Direction.SOUTH));
+    roomSpawner(roomAmount);
   }
-  void recurRoomSpawner(Room loc,int possibleRooms) {
+  void roomSpawner(int possibleRooms) {
     int chanceIncrease = 0;
     //while we still need rooms it will check everyone room for a place to put one and maybe spawn one
     while (possibleRooms != 0) {
@@ -20,6 +23,7 @@ class Level {
         }
       }
     }
+    print(possibleRooms);
     //after setting all the directions for walls and doors add them to their arrays
     for (Room room: rooms) {
       room.wallDoorCreator();

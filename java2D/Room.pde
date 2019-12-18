@@ -5,7 +5,7 @@ class Room {
   ArrayList<Direction> wallDirections;
   
   
-  Room(int possibleDoors,Direction entryPoint) {
+  Room(Direction entryPoint) {
     doorwayDirections.add(entryPoint);
     wallDirections = DirectionRemover(entryPoint);
   }
