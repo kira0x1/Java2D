@@ -7,16 +7,17 @@ class Agent {
 
   protected Vec2 curPos = new Vec2(0, 0);
   protected Vec2 movDir = new Vec2(0, 0);
+  
+  protected PImage imageLeft;
+  protected PImage imageRight;
+  protected PImage imageDown;
+  protected PImage imageUp;
+  
+  protected PImage playerImage;
  
 
   public Agent() {
     this(width/2, height/2, 20, 20);
-  }
-
-  //Move the player
-  public void Move() {
-    curPos.x -= movDir.x;
-    curPos.y += movDir.y;
   }
 
   public Agent(float x, float y, float w, float h) {
@@ -28,7 +29,17 @@ class Agent {
 
     //create box
     makeBody(curPos, w, h);
+    
+    imageDown = loadImage("assets/player/player_down.png");
+    playerImage = imageDown;
   }
+  
+    //Move the player
+  public void Move() {
+    curPos.x -= movDir.x;
+    curPos.y += movDir.y;
+  }
+
 
   public void destroyBody() {
     box2d.destroyBody(body);
@@ -43,7 +54,11 @@ class Agent {
     
     
     //Color player
-    fill(agentColor);
+    //fill(agentColor);
+    
+    //Display the player sprite
+    image(playerImage, pos.x - playerImage.width/2,pos.y - playerImage.height/2);
+   
     
     //Translate player
     translate(pos.x, pos.y);
@@ -51,7 +66,7 @@ class Agent {
     //Add the movement velocity
     body.setLinearVelocity(movDir);
     
-    rect(0, 0, w, h);
+    //rect(0, 0, w, h);
     popMatrix();
   }
 
