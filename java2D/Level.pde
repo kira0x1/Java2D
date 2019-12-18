@@ -10,7 +10,7 @@ class Level {
   void roomSpawner(int possibleRooms) {
     int chanceIncrease = 0;
     //while we still need rooms it will check everyone room for a place to put one and maybe spawn one
-    while (possibleRooms != 0) {
+    while (possibleRooms > 1) {
       for (int i = 0; i < rooms.size(); ++i) {
         
         
