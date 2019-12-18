@@ -3,14 +3,21 @@ class Player extends Agent {
   private Stats stats = new Stats();
   private Inventory inventory = new Inventory();
   
+  
+  //Player sprites file paths
+  String imgPathLeft = "assets/player/player_left";
+  String imgPathRight= "assets/player/player_right";
+  String imgPathUp= "assets/player/player_up";
+  String imgPathDown= "assets/player/player_down";
+  
   private void setup(){
     agentColor = color(0,200,180, 100);
     inventory.AddItem(Items.healthPot);
      System.out.println(inventory.toString());
   }
 
-  public Player(float x, float y,float w, float h){  
-    super(x,y,w,h);
+  public Player(float x, float y,float w, float h){
+    super(x,y,w,h, "assets/player/player_left.png","assets/player/player_right.png","assets/player/player_up.png","assets/player/player_down.png");
     setup();
   }
 
