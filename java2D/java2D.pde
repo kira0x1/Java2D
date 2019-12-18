@@ -27,6 +27,8 @@ ArrayList<Box> boxes = new ArrayList<Box>();
 
 
 void setup() {
+  
+  frameRate(60);
 
   //Set app to this class
   app = this;
