@@ -58,11 +58,16 @@ class Inventory implements IUi {
 
   public void ToggleInventory() {
     isOpen = !isOpen;
+    
+    if(!isOpen){
+       toolTip.Hide(); 
+    }
   }
 
   //Close inventory ui and do sound effect etc
   public void CloseInventory() {
     isOpen = false;
+    toolTip.Hide();
   }
 
   //Open Inventory UI and do sound effects etc

@@ -90,7 +90,15 @@ class Button implements IUi {
     if ( overRect(rectX, rectY, rectSize, rectSize) ) {
       rectOver = true;
     } else {
+      if(rectOver == true){
+         toolTip.Hide();
+      }
       rectOver = false;
+    }
+    
+    
+    if(rectOver && hasItem){
+        toolTip.Show(item); 
     }
   }
 

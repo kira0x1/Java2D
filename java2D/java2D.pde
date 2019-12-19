@@ -14,6 +14,7 @@ Level test;
 //Static reference of this app so we can use static classes
 public static java2D app;
 public static UI ui;
+public static ToolTip toolTip;
 
 private CursorManager cursorManager;
 
@@ -41,7 +42,7 @@ void setup() {
   
   //Init CursorManager
   cursorManager = new CursorManager();
-
+  
 
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
@@ -63,6 +64,9 @@ void setup() {
     box.body.applyForceToCenter(new Vec2(5550, -5510));  
     boxes.add(box);
   }
+  
+  //Init ToolTip
+  toolTip = new ToolTip();
 }
 
 void draw() {

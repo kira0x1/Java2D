@@ -8,7 +8,7 @@ class Room {
   Room(Direction entryPoint) {
     doorwayDirections.add(entryPoint);
     wallDirections = DirectionRemover(entryPoint);
-    println(" room const wall di" + wallDirections);
+    //println(" room const wall di" + wallDirections);
   }
   
   public void show() {
