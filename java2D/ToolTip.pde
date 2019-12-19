@@ -3,6 +3,10 @@ public class ToolTip implements IUi {
   private boolean isShowing = false;
 
   private String titleText;
+  private float titleYOffset = 10;
+  private float titleY;
+
+
   private String descriptionText;
   private PImage icon;
 
@@ -37,10 +41,16 @@ public class ToolTip implements IUi {
       float x = mx - xOffset;
       float y = my - yOffset;
 
+      textAlign(CENTER);
+
+      titleY = y - titleYOffset;
 
 
       fill(0, 200);
       rect(x, y, rectWidth, rectHeight);
+
+      fill(255);
+      text(titleText, x, titleY);
     }
   }
 }
