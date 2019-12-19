@@ -3,7 +3,7 @@ public class ToolTip implements IUi {
   private boolean isShowing = false;
 
   private String titleText;
-  private float titleYOffset = 10;
+  private float titleYOffset = 50;
   private float titleY;
 
 
@@ -15,8 +15,15 @@ public class ToolTip implements IUi {
 
   public float rectWidth = 180;
   public float rectHeight = 150;
+  
+  private PFont pixelFont;
 
   public ToolTip() {
+    
+    pixelFont = createFont("assets/RetroFont.TTF",12);
+    textFont(pixelFont);
+    
+    
     ui.addUi(this);
   }
 
