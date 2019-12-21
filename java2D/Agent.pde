@@ -20,10 +20,7 @@ class Agent {
   protected Animation walkingRightAnimation;
 
   protected PImage agentImage;
-
-
-  //Show the rect collider
-  protected boolean debugPhysics = false;
+ 
 
   public Agent() {
     this(width/2, height/2, 20, 20);
@@ -109,7 +106,7 @@ class Agent {
     //Add the movement velocity
     body.setLinearVelocity(movDir);
 
-    if (debugPhysics) {
+    if (ui.isDebugPhysOn()) {
 
       //Color player
       fill(agentColor);

@@ -4,6 +4,8 @@
 public class AdminTools implements IUi {
 
   private boolean showPlayerStats;
+  private boolean showColliders;
+  
   private PlayerStatsDisplay playerStatsDisplay = new PlayerStatsDisplay();
   private Player player;
 
@@ -16,6 +18,9 @@ public class AdminTools implements IUi {
   public void keyReleased() {
     if (key == 'c') {
       showPlayerStats = !showPlayerStats;
+    }else if(key == 'v'){
+        showColliders  = !showColliders;
+        ui.setDebugPhys(showColliders);
     }
   }
 
