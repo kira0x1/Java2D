@@ -26,9 +26,11 @@ Player player;
 
 ArrayList<Box> boxes = new ArrayList<Box>();
 
+AdminTools adminTools;
+
 
 void setup() {
-  
+
   frameRate(60);
 
   //Set app to this class
@@ -36,13 +38,15 @@ void setup() {
 
   //Initilize static class for items ( This is basically a database for items )
   Items.init();
-  
+
   //Init ui
   ui = new UI();
-  
+
   //Init CursorManager
   cursorManager = new CursorManager();
-  
+
+  //Init Admin Tools
+  adminTools = new AdminTools(player);
 
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
@@ -64,7 +68,7 @@ void setup() {
     box.body.applyForceToCenter(new Vec2(5550, -5510));  
     boxes.add(box);
   }
-  
+
   //Init ToolTip
   toolTip = new ToolTip();
 }
@@ -90,8 +94,8 @@ void draw() {
   for (Box box : boxes) {
     box.display();
   }
-  
-  
+
+
   ui.display();
 }
 
@@ -101,10 +105,10 @@ void keyPressed() {
 
 void keyReleased() {
   player.keyReleased();
+  adminTools.keyReleased();
 } 
 
-void mousePressed(){
-   
+void mousePressed() {
 }
 
 // Collision event functions!

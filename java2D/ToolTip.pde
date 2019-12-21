@@ -20,7 +20,7 @@ public class ToolTip implements IUi {
 
   public ToolTip() {
     
-    pixelFont = createFont("assets/RetroFont.TTF",12);
+    pixelFont = createFont("assets/RetroFont.TTF",18);
     textFont(pixelFont);
     
     
