@@ -19,8 +19,8 @@ public class AdminTools implements IUi {
     if (key == 'c') {
       showPlayerStats = !showPlayerStats;
     }else if(key == 'v'){
-        showColliders  = !showColliders;
-        ui.setDebugPhys(showColliders);
+      showColliders  = !showColliders;
+      ui.setDebugPhys(showColliders);
     }
   }
 
