@@ -11,6 +11,8 @@ class Box {
   float w;
   float h;
 
+  protected color boxColor = color(175);
+
   // Constructor
   Box(float x_, float y_) {
     float x = x_;
@@ -35,7 +37,7 @@ class Box {
   }
 
   // Drawing the box
-  void display() {
+  public void display() {
     // We look at each body and get its screen position
     Vec2 pos = box2d.getBodyPixelCoord(body);
     // Get its angle of rotation
@@ -45,7 +47,7 @@ class Box {
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(-a);
-    fill(175);
+    fill(boxColor);
     stroke(0);
     rect(0, 0, w, h);
     popMatrix();
